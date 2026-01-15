@@ -1,0 +1,15 @@
+services:
+  learningBase:
+    image: ayushi1612/learningbase_bitcoin_forecast:latest
+    volumes:
+      - ai_system:/tmp/learningBase  # Mount ai_system to /tmp/learningBase
+    command: ls -R /tmp/learningBase  # Keeps the container running
+
+  activationBase:
+    image: ayushi1612/activationbase_bitcoin_forecast:latest
+    volumes:
+      - ai_system:/tmp/activationBase  # Mount ai_system to /tmp/activationBase
+    command: ls -R /tmp/activationBase  # Keeps the container running
+
+volumes:
+  ai_system:  # Single volume shared by both containers
