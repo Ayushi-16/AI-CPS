@@ -1,0 +1,12 @@
+services:
+  learning_base:
+    build: .
+    image: ayushi1612/learningbase_bitcoin_forecast:latest
+    container_name: learningbase_bitcoin_forecast
+    volumes:
+       - learningbase_volume:/tmp
+    command: sh -c "tail -f /dev/null"
+volumes:
+  learningbase_volume:
+    name: ai_system
+    external: true

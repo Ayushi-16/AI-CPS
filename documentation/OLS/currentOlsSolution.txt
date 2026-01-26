@@ -1,0 +1,16 @@
+OLS MODEL PARAMETERS
+
+Features: Open, High, Low, Volume
+Target: Close
+
+Coefficients:
+  const: 8.927318
+  Open: -0.564591
+  High: 0.916076
+  Low: 0.644577
+  Volume: -0.000000
+
+R-squared: 0.999520
+Adjusted R-squared: 0.999519
+AIC: 34255.3642
+BIC: 34284.1708

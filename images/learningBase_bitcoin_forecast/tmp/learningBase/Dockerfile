@@ -1,7 +1,8 @@
 FROM busybox:latest
 
 # Create necessary directories inside the container
-RUN mkdir -p /tmp/learningBase /tmp/learningBase/train /tmp/learningBase/validation
+RUN mkdir -p /tmp/learningBase/train
+RUN mkdir -p /tmp/learningBase/validation
 
 # Copy training and validation data
 COPY images/learningBase_bitcoin_forecast/tmp/learningBase/train/training_data.csv /tmp/learningBase/train/
