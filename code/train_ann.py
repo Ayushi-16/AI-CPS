@@ -11,13 +11,16 @@ from tensorflow.keras import layers
 
 
 # paths
-TRAIN_PATH = Path("/home/ayan/Downloads/AIBAS/bitcoin_price/AI-CPS/data/training_data.csv")
-TEST_PATH  = Path("/home/ayan/Downloads/AIBAS/bitcoin_price/AI-CPS/data/test_data.csv")
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent if SCRIPT_DIR.name == "code" else SCRIPT_DIR
 
-OUT_DIR = Path("/home/ayan/Downloads/AIBAS/bitcoin_price/AI-CPS/documentation/ANN")
+TRAIN_PATH = REPO_ROOT / "data" / "training_data.csv"
+TEST_PATH = REPO_ROOT / "data" / "test_data.csv"
+
+OUT_DIR = REPO_ROOT / "documentation" / "ANN"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-MODEL_PATH   = OUT_DIR / "ann_bitcoin_model.keras"
+MODEL_PATH = OUT_DIR / "ann_bitcoin_model.keras"
 METRICS_PATH = OUT_DIR / "ann_performance_metrics.txt"
 
 SEED = 123
