@@ -1,13 +1,19 @@
-# ignore ALL .log files
-*.log
-*__pycache__*
+__pycache__/
 *.pyc
-
-# ignore ALL files in ANY directory named temp
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+.env
 venv/
-temp/ 
-code/logs
-code/experiments/logs
-code/messageClient/logs__pycache__/
-*.pyc
+
+*.log
+temp/
+code/logs/
+code/experiments/logs/
+code/messageClient/logs/
+
 .DS_Store
+Thumbs.db
+
+results/**/*
+!results/**/.gitkeep

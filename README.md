@@ -76,12 +76,6 @@ and documented in the project report.
 
 ---
 
-## Repository Structure
-
-## Repository Structure
-
-## Project Structure
-
 ## Project Structure
 
 ```text
@@ -136,9 +130,9 @@ AI-CPS/
 ├── LICENSE                              # AGPL-3.0 License
 ├── README.md                            # Project documentation
 └── requirements.txt                     # Python dependencies
----
 
-## Docker-Based Deployment
+```
+## Docker Based Deployment
 
 ### External Volume
 
@@ -203,3 +197,4 @@ at the **University of Potsdam**.
 ## License
 
 GNU Affero General Public License v3.0 (AGPL-3.0)
+
