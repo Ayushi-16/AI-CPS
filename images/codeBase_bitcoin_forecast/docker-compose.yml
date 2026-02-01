@@ -1,0 +1,10 @@
+services:
+  code_base:
+    build: .
+    image: ghoshayan/codebase_bitcoin_forecast:latest
+    volumes:
+       - ai_system:/tmp
+
+volumes:
+  ai_system:
+    external: true

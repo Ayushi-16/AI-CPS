@@ -1,0 +1,23 @@
+services:
+  knowledge_base:
+    build: .
+    image: ghoshayan/knowledgebase_bitcoin_forecast:latest
+    container_name: knowledgebase_bitcoin_forecast
+    volumes:
+       - ai_system:/tmp
+    command: 
+      - sh
+      - "-c"
+      - |
+        echo '=== INITIALIZING KNOWLEDGE BASE ==='
+        # Ensure the destination folder exists in the shared volume
+        mkdir -p /tmp/knowledgeBase/
+        # Copy the model and readme from the image's internal path to the volume
+        cp -r /tmp/knowledgeBase/. /tmp/knowledgeBase/
+        echo '=== Verification of Volume Content ==='
+        ls -lh /tmp/knowledgeBase/
+        echo 'Knowledge Base successfully mapped to /tmp/knowledgeBase/'
+
+volumes:
+  ai_system:
+    external: true

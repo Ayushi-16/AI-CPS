@@ -1,13 +1,9 @@
-FROM busybox:latest
+# syntax=docker/dockerfile:1
+FROM busybox
 
-# Create necessary directory
-RUN mkdir -p /tmp/activationBase
+RUN mkdir -p /activationBase/
 
-# Copy activation data
-COPY images/activationBase_bitcoin_forecast/activation_data.csv /tmp/activationBase/
+COPY activation_data.csv /activationBase/activation_data.csv
+COPY README.md           /activationBase/README.md
 
-# Copy README 
-COPY images/activationBase_bitcoin_forecast/README.md /tmp/activationBase/
-
-# Keep the container shell available
-CMD ["sh"]
+CMD ["sh", "-c", "rm -rf /tmp/activationBase/ && mkdir -p /tmp/activationBase/ && cp -r /activationBase/. /tmp/activationBase/"]

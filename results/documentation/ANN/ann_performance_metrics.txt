@@ -1,0 +1,9 @@
+ANN Bitcoin Price Prediction Performance
+
+MAE:              0.031036
+MSE:              0.001518
+RMSE:             0.038959
+R2 Score:         0.976455
+Adjusted R2:      0.976294
+Input Features:   4
+Training Epochs:  75

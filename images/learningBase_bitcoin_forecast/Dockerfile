@@ -1,15 +1,9 @@
 FROM busybox:latest
 
-# Create necessary directories inside the container
-RUN mkdir -p /tmp/learningBase/train
-RUN mkdir -p /tmp/learningBase/validation
+RUN mkdir -p /learningBaseSource/train /learningBaseSource/validation
 
-# Copy training and validation data
-COPY images/learningBase_bitcoin_forecast/train/training_data.csv /tmp/learningBase/train/
-COPY images/learningBase_bitcoin_forecast/validation/test_data.csv /tmp/learningBase/validation/
+COPY train/training_data.csv /learningBaseSource/train/
+COPY validation/test_data.csv /learningBaseSource/validation/
+COPY README.md /learningBaseSource/
 
-# Copy README
-COPY README.md /tmp/learningBase/
-
-# Keep the container shell available
-CMD ["sh"]
+CMD ["sh", "-c", "rm -rf /tmp/learningBase/ && mkdir -p /tmp/learningBase/train /tmp/learningBase/validation && cp -r /learningBaseSource/. /tmp/learningBase/ && echo 'LearningBase files injected into volume'"]

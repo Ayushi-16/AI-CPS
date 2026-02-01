@@ -16,6 +16,7 @@ Data is scrapped from Yahoo Finance for period 01.01.2025 to 01.01.2026. (https:
 
 ## Docker setup and verification
 Note - replace ayushi1612 with your docker username
+
 ### 1. Build the Docker Image manually with Dockerfile
 From the root of the repository, run:
 

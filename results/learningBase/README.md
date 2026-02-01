@@ -1,4 +1,4 @@
-# Code Base - AI based Bitcoin Price Forecast
+# Learning Base - AI based Bitcoin Price Forecast
 
 ## Ownership
 Created and maintained Ayushi Garachh and Ayan Ghosh
@@ -9,33 +9,33 @@ The project is created as part of the course 'M. Grum: Advanced AI-based Applica
 ## Data origin
 Data is scrapped from Yahoo Finance for period 01.01.2025 to 01.01.2026. (https://finance.yahoo.com/quote/BTC-EUR/history/?)
 
-## Model Logic and Scripts
-- **train_ann.py**: Script for Artificial Neural Network training and evaluation.
-- **train_ols.py**: Script for Ordinary Least Squares regression analysis.
-- **LinearRegDiagnostic.py**: Helper module for regression diagnostics.
-- **activation_data.csv**: Data used for model activation/testing.
+## Model Training Data
+- Contains training and testing data for Bitcoin Forecast and analysis:
+- Open price(in Euro)
+- Close price(in Euro)
 
 ## Docker setup and verification
-Note - replace ghoshayan with your docker username
-
+Note - replace ayushi1612 with your docker username
 ### 1. Build the Docker Image manually with Dockerfile
 From the root of the repository, run:
 
 ```bash
-docker build --tag ghoshayan/codebase_bitcoin_forecast:latest -f images/codeBase_bitcoin_forecast/Dockerfile .
+docker build --tag ayushi1612/learningbase_bitcoin_forecast:latest -f images/learningBase_bitcoin_forecast/Dockerfile .
 ```
 
 ### 2. Have a look on the image created
 
 ```bash
-docker run -it --rm ghoshayan/codebase_bitcoin_forecast:latest sh
+docker run -it --rm  ayushi1612/learningbase_bitcoin_forecast:latest sh
 ```
 
 ### Run the following commands inside shell
 
 ```bash
-ls /codeBaseSource
-ls /activationBaseSource
+ls tmp/
+ls tmp/learningBase
+ls tmp/learningBase/train
+ls tmp/learningBase/validation
 exit
 ```
 
@@ -50,20 +50,20 @@ docker volume rm ai_system # Delete volume MUST IF EXIST
 ### 3. Test local docker image
 
 ```bash
-docker-compose -f images/codeBase_bitcoin_forecast/docker-compose.yml up
+docker-compose -f images/learningBase_bitcoin_forecast/docker-compose.yml up
 ```
 ### Verify using docker app and verify tmp folder in Files of container
 
-### 4. Push docker image to ```docker https://hub.docker.com/``` of account called ```ghoshayan```
+### 4. Push docker image to ```docker https://hub.docker.com/``` of account called ```ayushi1612```
 
 ```bash
-docker image push ghoshayan/codebase_bitcoin_forecast:latest
+docker image push ayushi1612/learningbase_bitcoin_forecast:latest
 ```
 
 ### 5. Close docker image container
 
 ```bash
-docker-compose -f images/codeBase_bitcoin_forecast/docker-compose.yml down
+docker-compose -f images/learningBase_bitcoin_forecast/docker-compose.yml down
 ```
 
 ## License 

@@ -8,4 +8,6 @@ venv/
 temp/ 
 code/logs
 code/experiments/logs
-code/messageClient/logs
+code/messageClient/logs__pycache__/
+*.pyc
+.DS_Store

@@ -1,12 +1,11 @@
-#Base image
 FROM busybox:latest
 
-# Create path 
-RUN mkdir -p /tmp/activationBase/
+RUN mkdir -p /codeBaseSource/ /activationBaseSource/
 
-# Copy the activation data and readme
-COPY activation_data.csv /tmp/activationBase/
-COPY README.md /tmp/activationBase/
+COPY activation_data.csv /activationBaseSource/
+COPY train_ann.py train_ols.py LinearRegDiagnostic.py README.md /codeBaseSource/
 
-# Keep the container shell available
-CMD ["sh"]
+CMD ["sh", "-c", "rm -rf /tmp/activationBase/ /tmp/codeBase/ && \
+    mkdir -p /tmp/activationBase/ /tmp/codeBase/ && \
+    cp -r /activationBaseSource/. /tmp/activationBase/ && \
+    cp -r /codeBaseSource/. /tmp/codeBase/"]

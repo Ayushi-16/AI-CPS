@@ -1,0 +1,60 @@
+services:
+  # --- STORAGE LAYER ---
+  knowledge_base:
+    image: ghoshayan/knowledgebase_bitcoin_forecast:latest
+    volumes:
+      - ai_system:/tmp
+
+  code_base:
+    image: ghoshayan/codebase_bitcoin_forecast:latest
+    volumes:
+      - ai_system:/tmp
+
+  learning_base:
+    image: ghoshayan/learningbase_bitcoin_forecast:latest
+    volumes:
+      - ai_system:/tmp
+
+  # --- AI APPLICATION 1: ANN ---
+  ann-application:
+    image: tensorflow/tensorflow:latest
+    container_name: bitcoin_ann_engine
+    volumes:
+      - ai_system:/tmp
+    depends_on:
+      - code_base
+    command: >
+      sh -c "
+      sleep 10 &&
+      mkdir -p /tmp/codeBase/data &&
+      ln -sf /tmp/learningBase/train/training_data.csv /tmp/codeBase/data/training_data.csv &&
+      ln -sf /tmp/learningBase/validation/test_data.csv /tmp/codeBase/data/test_data.csv &&
+      pip install -q pandas scikit-learn matplotlib &&
+      python3 /tmp/codeBase/train_ann.py
+      "
+
+  # --- AI APPLICATION 2: OLS ---
+  ols-application:
+    image: tensorflow/tensorflow:latest
+    container_name: bitcoin_ols_engine
+    volumes:
+      - ai_system:/tmp
+    depends_on:
+      - code_base
+    command: >
+      sh -c "
+      sleep 15;
+      touch /tmp/.gitignore;
+      # Create the documentation folders so the plots can save!
+      mkdir -p /tmp/documentation/OLS /tmp/documentation/ANN;
+      mkdir -p /tmp/images/learningBase_bitcoin_forecast/tmp/learningBase/train/;
+      mkdir -p /tmp/images/learningBase_bitcoin_forecast/tmp/learningBase/validation/;
+      ln -sf /tmp/learningBase/train/training_data.csv /tmp/images/learningBase_bitcoin_forecast/tmp/learningBase/train/training_data.csv;
+      ln -sf /tmp/learningBase/validation/test_data.csv /tmp/images/learningBase_bitcoin_forecast/tmp/learningBase/validation/test_data.csv;
+      pip install -q pandas scikit-learn matplotlib statsmodels seaborn;
+      python3 /tmp/codeBase/train_ols.py
+      "
+
+volumes:
+  ai_system:
+    external: true

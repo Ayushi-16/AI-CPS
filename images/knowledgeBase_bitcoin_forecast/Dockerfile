@@ -1,12 +1,9 @@
-#Base image
+# syntax=docker/dockerfile:1
 FROM busybox:latest
 
-# Create path
-RUN mkdir -p /tmp/knowledgeBase/
+RUN mkdir -p /knowledgeBase/
 
-# Copy the model and readme
-COPY currentSolution.keras /tmp/knowledgeBase/
-COPY README.md /tmp/knowledgeBase/
+COPY currentSolution.keras /knowledgeBase/
+COPY README.md /knowledgeBase/
 
-# Keep the container shell available
-CMD ["sh"]
+CMD ["sh", "-c", "rm -rf /tmp/knowledgeBase/ && mkdir -p /tmp/knowledgeBase/ && cp -r /knowledgeBase/. /tmp/knowledgeBase/"]
