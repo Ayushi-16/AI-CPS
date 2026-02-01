@@ -78,16 +78,64 @@ and documented in the project report.
 
 ## Repository Structure
 
-AI-Bitcoin-Forecast/
-├── images/
-│   ├── activationBase_bitcoin_forecast/
-│   ├── learningBase_bitcoin_forecast/
-│   ├── knowledgeBase_bitcoin_forecast/
-│   └── codeBase_bitcoin_forecast/
-├── docker-compose.yml
-├── results/
-└── README.md
+## Repository Structure
 
+## Project Structure
+
+## Project Structure
+
+```text
+AI-CPS/
+├── 📁 code/                             # Original scripts
+│   ├── clean_data.ipynb
+│   ├── LinearRegDiagnostic.py
+│   ├── scrape_data.py
+│   ├── train_ann.py
+│   └── train_ols.py
+├── 📁 data/                             # Raw and processed CSV datasets
+│   ├── activation_data.csv
+│   ├── bitcoin_stock_data.csv
+│   ├── joint_data_collection.csv
+│   ├── test_data.csv
+│   └── training_data.csv
+├── 📁 documentation/                    # Model performance and visualizations
+│   ├── 📁 ANN/                          # ANN metrics, model, and plots
+│   └── 📁 OLS/                          # OLS metrics, pickles, and diagnostic plots
+├── 📁 images/                           # Decentralized Docker Base Images
+│   ├── 📁 activationBase_bitcoin_forecast/
+│   │   ├── activation_data.csv
+│   │   ├── docker-compose.yml
+│   │   ├── Dockerfile
+│   │   └── README.md
+│   ├── 📁 codeBase_bitcoin_forecast/
+│   │   ├── activation_data.csv
+│   │   ├── docker-compose.yml
+│   │   ├── Dockerfile
+│   │   ├── LinearRegDiagnostic.py
+│   │   ├── train_ann.py
+│   │   └── train_ols.py
+│   ├── 📁 knowledgeBase_bitcoin_forecast/
+│   │   ├── currentSolution.keras
+│   │   ├── docker-compose.yml
+│   │   └── Dockerfile
+│   └── 📁 learningBase_bitcoin_forecast/
+│       ├── 📁 train/
+│       ├── 📁 validation/
+│       ├── docker-compose.yml
+│       └── Dockerfile
+├── 📁 results/                          # Exported content from the ai_system volume
+│   ├── 📁 activationBase/
+│   ├── 📁 codeBase/
+│   │   ├── 📁 data/
+│   │   └── 📁 documentation/ANN/
+│   ├── 📁 knowledgeBase/
+│   └── 📁 images/learningBase_bitcoin_forecast/
+├── .gitignore                           # Git exclusion rules
+├── CITATION.cff                         # Citation metadata
+├── docker-compose.yml                   # Main AI-CPS Orchestrator
+├── LICENSE                              # AGPL-3.0 License
+├── README.md                            # Project documentation
+└── requirements.txt                     # Python dependencies
 ---
 
 ## Docker-Based Deployment
