@@ -1,6 +1,6 @@
 services:
   learning_base:
-    image: ghoshayan/learningbase_bitcoin_forecast:latest
+    image: ayushi1612/learningbase_bitcoin_forecast:latest
     container_name: learningbase_bitcoin_forecast
     volumes:
       - ai_system:/tmp

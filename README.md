@@ -41,8 +41,7 @@ allowing a **direct performance comparison**.
 ## Dataset Description
 
 **Source**  
-Historical BTC–EUR price data scraped from  
-https://finance.yahoo.com/quote/BTC-EUR/history/
+Historical BTC–EUR price data scraped from **https://finance.yahoo.com/quote/BTC-EUR/history/**
 
 **Features**
 - Open – Opening price (EUR)
@@ -150,31 +149,45 @@ This enables **decoupled storage and runtime integration**, as required by the A
 
 ### Pull Required Images
 
+```bash
 docker pull ghoshayan/knowledgebase_bitcoin_forecast:latest  
 docker pull ghoshayan/codebase_bitcoin_forecast:latest  
-docker pull ghoshayan/learningbase_bitcoin_forecast:latest  
+docker pull ayushi1612/learningbase_bitcoin_forecast:latest  
 docker pull ayushi1612/activationbase_bitcoin_forecast:latest  
-
+```
 ---
 
 ### Create External Volume
 
+```bash
 docker volume create ai_system
-
+```
 ---
 
 ### Run AI-CPS Application (ANN + OLS)
 
+```bash
 docker compose up --pull always --remove-orphans
-
+```
 ---
 
 ### Export Results from Volume
 
+```bash
+# For bash
 docker run --rm \
   -v ai_system:/data \
   -v $(pwd)/results:/export \
   busybox sh -c "cp -a /data/. /export/"
+```
+
+```powershell
+# For powershell/cmd
+docker run --rm `
+  -v ai_system:/data `
+  -v ${PWD}/results:/export `
+  busybox sh -c "cp -a /data/. /export/"
+```
 
 ---
 

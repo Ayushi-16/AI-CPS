@@ -1,7 +1,7 @@
 # Activation Base - AI based Bitcoin Price Forecast
 
 ## Ownership
-Created and maintained Ayushi Garachh and Ayan Ghosh
+Created and maintained by Ayushi Garachh and Ayan Ghosh
 
 ## Course Information
 The project is created as part of the course 'M. Grum: Advanced AI-based Application Systems' by the Junior Chair for Business Information Science, esp. AI-based Application Systems at University of Potsdam.
@@ -21,7 +21,11 @@ Note - replace ayushi1612 with your docker username
 From the root of the repository, run:
 
 ```bash
-docker build --tag ayushi1612/activationbase_bitcoin_forecast:latest -f images/activationBase_bitcoin_forecast/Dockerfile .
+cd images/activationBase_bitcoin_forecast
+```
+
+```bash
+docker build --tag ayushi1612/activationbase_bitcoin_forecast:latest -f Dockerfile .
 ```
 
 ### 2. Have a look on the image created
@@ -33,36 +37,35 @@ docker run -it --rm  ayushi1612/activationbase_bitcoin_forecast:latest sh
 ### Run the following commands inside shell
 
 ```bash
-ls tmp/
-ls tmp/activationBase
+ls activationBase
 exit
 ```
 
-### 4. Create Docker volume 
+### 3. Create Docker volume 
 
 ```bash
 docker volume ls # To verify if volume ai_system exist or not
 docker volume create ai_system # ONLY IF DOES NOT EXISTS
-docker volume rm ai_system # Delete volume MUST IF EXIST
 ```
 
-### 3. Test local docker image
+### 4. Test local docker image
 
 ```bash
-docker-compose -f images/activationBase_bitcoin_forecast/docker-compose.yml up
+docker-compose -f docker-compose.yml up
 ```
 ### Verify using docker app and verify tmp folder in Files of container
 
-### 4. Push docker image to ```docker https://hub.docker.com/``` of account called ```ayushi1612```
+### 5. Push docker image to ```docker https://hub.docker.com/``` of account called ```ayushi1612```
 
 ```bash
 docker image push ayushi1612/activationbase_bitcoin_forecast:latest
 ```
 
-### 5. Close docker image container
+### 6. Close docker image container and navigate back to root folder
 
 ```bash
-docker-compose -f images/activationBase_bitcoin_forecast/docker-compose.yml down
+docker-compose -f docker-compose.yml down
+cd ../..
 ```
 
 ## License 

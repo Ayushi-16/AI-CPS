@@ -32,8 +32,8 @@ def load_data():
     Load training and testing data from CSV files.
     """
     project_root = find_project_root()
-    train_path = project_root/"images/learningBase_bitcoin_forecast/tmp/learningBase/train/training_data.csv"
-    test_path = project_root/"images/learningBase_bitcoin_forecast/tmp/learningBase/validation/test_data.csv"
+    train_path = project_root/"images/learningBase_bitcoin_forecast/train/training_data.csv"
+    test_path = project_root/"images/learningBase_bitcoin_forecast/validation/test_data.csv"
     train_data = pd.read_csv(train_path)
     test_data = pd.read_csv(test_path)
     if 'Date' in train_data.columns:

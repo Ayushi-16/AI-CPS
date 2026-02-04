@@ -11,7 +11,7 @@ services:
       - ai_system:/tmp
 
   learning_base:
-    image: ghoshayan/learningbase_bitcoin_forecast:latest
+    image: ayushi1612/learningbase_bitcoin_forecast:latest
     volumes:
       - ai_system:/tmp
 
